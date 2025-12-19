@@ -1,0 +1,22 @@
+# Temporary files
+tmp/
+
+# environment
+.env/
+.env
+
+# From Ansible
+local-configure.yml
+.vagrant/
+docs/_build/
+._*
+bin/
+lib/
+include/
+local/
+tests.out
+*.retry
+*.log
+vbox_host.cfg
+.DS_Store
+*.py[co]
