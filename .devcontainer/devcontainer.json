@@ -1,0 +1,40 @@
+{
+  "name": "arinit",
+  //"image": "mcr.microsoft.com/devcontainers/go:0-1.21${env:MS_DEV_CONTAINER_FLAVOR}",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {}
+  },
+  "containerEnv": {
+    "MS_DEV_CONTAINER_FLAVOR": "${env:MS_DEV_CONTAINER_FLAVOR}"
+  },
+  "runArgs": [
+    "--env-file",
+    "${localWorkspaceFolder}/.env"
+  ],
+  "customizations": {
+    // Configure properties specific to VS Code.
+    "vscode": {
+      "extensions": [
+        "EditorConfig.EditorConfig",
+        "GitHub.copilot",
+        "hashicorp.terraform",
+        "ms-azuretools.vscode-docker",
+        "ms-kubernetes-tools.vscode-kubernetes-tools",
+        "ms-python.python",
+        "redhat.ansible",
+        "wholroyd.jinja"
+      ]
+    }
+  },
+  "forwardPorts": [
+    9000
+  ],
+  // Use 'otherPortsAttributes' to configure any ports that aren't configured using 'portsAttributes'.
+  "otherPortsAttributes": {
+    "onAutoForward": "notify"
+  },
+  "postCreateCommand": "ansible --version"
+}
